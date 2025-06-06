@@ -1,0 +1,50 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-neutral text-[#E0E0E0] dark:bg-primary-dark dark:text-neutral-light;
+  }
+  
+  .dark body {
+    background-image: radial-gradient(circle at center, #2a2a2a 0%, #1a1a1a 100%);
+  }
+  
+  .light body {
+    background-image: radial-gradient(circle at center, #f0f0f0 0%, #e5e5e5 100%);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mono font-semibold leading-tight tracking-tight;
+  }
+  
+  p {
+    @apply leading-relaxed font-sans;
+  }
+
+  a {
+    @apply text-accent-blue hover:text-accent-purple transition-colors duration-300;
+  }
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-neon-hover;
+}
+
+@layer components {
+  .glass {
+    @apply bg-neutral/60 backdrop-blur-md border border-neutral-light/10 dark:bg-primary-dark/60 dark:backdrop-blur-md dark:border dark:border-neutral-light/10;
+  }
+  
+  .glass-borderless {
+    @apply bg-neutral/60 backdrop-blur-md dark:bg-primary-dark/60 dark:backdrop-blur-md;
+  }
+}
