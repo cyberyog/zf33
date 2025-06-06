@@ -35,6 +35,34 @@ const CategoryDescription: React.FC<CategoryDescriptionProps> = ({ category, ind
     }
   };
 
+  // Neon Mythic Odyssey essence statements
+  const getNeonMythicEssence = (index: number) => {
+    switch(index) {
+      case 0:
+        return "Ancient spirits stride through synth-lit horizons";
+      case 1:
+        return "Hyper-saturated palettes paint deities and beasts";
+      case 2:
+        return "Cosmic vastness meets intimate folklore ritual";
+      default:
+        return "Ancient spirits stride through synth-lit horizons";
+    }
+  };
+
+  // Retro Surreal Saga essence statements
+  const getRetroSurrealEssence = (index: number) => {
+    switch(index) {
+      case 0:
+        return "Oil-smooth heroes glow under retro film grain";
+      case 1:
+        return "Fantasy pulp meets future tech chroma haze";
+      case 2:
+        return "Legendary calm wrapped in magazine-cover drama";
+      default:
+        return "Oil-smooth heroes glow under retro film grain";
+    }
+  };
+
   // Different descriptions based on the box position
   const getDescription = () => {
     // Special handling for Mythic Tech Realism category
@@ -45,6 +73,16 @@ const CategoryDescription: React.FC<CategoryDescriptionProps> = ({ category, ind
     // Special handling for Epic Painterly Realism category
     if (category.slug === 'epic-painterly-realism') {
       return getEpicPainterlyEssence(index);
+    }
+
+    // Special handling for Neon Mythic Odyssey category
+    if (category.slug === 'neon-mythic-odyssey') {
+      return getNeonMythicEssence(index);
+    }
+
+    // Special handling for Retro Surreal Saga category
+    if (category.slug === 'retro-surreal-saga') {
+      return getRetroSurrealEssence(index);
     }
     
     // Regular descriptions for other categories
@@ -62,8 +100,8 @@ const CategoryDescription: React.FC<CategoryDescriptionProps> = ({ category, ind
 
   const description = getDescription();
   
-  // Special styling for Mythic Tech Realism and Epic Painterly Realism
-  const isSpecialStyle = category.slug === 'mythic-tech-realism' || category.slug === 'epic-painterly-realism';
+  // Special styling for special styles that have essence statements
+  const isSpecialStyle = ['mythic-tech-realism', 'epic-painterly-realism', 'neon-mythic-odyssey', 'retro-surreal-saga'].includes(category.slug);
   
   // Container class - remove glass styling (which has borders) for special styles
   const containerClass = isSpecialStyle 

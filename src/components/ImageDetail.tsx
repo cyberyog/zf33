@@ -114,6 +114,17 @@ const ImageDetail: React.FC<ImageDetailProps> = ({
     }
   };
 
+  // Function to add token to prompt
+  const addTokenToPrompt = (token: string) => {
+    if (textareaRef.current) {
+      const newText = promptText ? `${promptText} ${token}` : token;
+      setPromptText(newText);
+      
+      // Focus the textarea
+      textareaRef.current.focus();
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-4">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -229,6 +240,28 @@ const ImageDetail: React.FC<ImageDetailProps> = ({
                   className="w-full p-2 rounded-2xl bg-black/50 text-accent-sage placeholder-gray-500 dark:placeholder-neutral-light/40 font-mono text-sm border-0 focus:ring-1 focus:ring-accent-blue/40 resize-none overflow-hidden"
                   style={{ minHeight: '3rem' }}
                 />
+
+                {/* Tokens section - only show for new styles with tokens */}
+                {image.tokens && image.tokens.length > 0 && (
+                  <div className="mt-4">
+                    <div className="space-y-2">
+                      {image.tokens.map((tokenRow, rowIndex) => (
+                        <div key={rowIndex} className="flex flex-wrap gap-1">
+                          {tokenRow.map((token, tokenIndex) => (
+                            <button
+                              key={tokenIndex}
+                              onClick={() => addTokenToPrompt(token)}
+                              className="px-2 py-1 bg-black/30 hover:bg-black/50 text-[#94AFA7] hover:text-[#829992] text-xs rounded-xl transition-all duration-300 cursor-pointer font-mono"
+                            >
+                              {token}
+                            </button>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
                 <div className="flex justify-center mt-3">
                   <button
                     className="inline-block px-4 py-1.5 bg-black/50 text-[#66BB6A] hover:opacity-90 transition-colors duration-300 text-sm font-mono tracking-wide rounded-2xl"

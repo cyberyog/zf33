@@ -2,7 +2,7 @@ export interface Image {
   id: string;
   title: string;
   description: string;
-  category: 'neo-retro' | 'iridescent-divinity' | 'bronze-mythic-realism' | 'hyper-anime-portraiture' | 'mythic-tech-realism' | 'epic-painterly-realism';
+  category: 'mythic-tech-realism' | 'epic-painterly-realism' | 'neon-mythic-odyssey' | 'retro-surreal-saga';
   categoryLabel: string;
   url: string;
   featured: boolean;
@@ -11,6 +11,7 @@ export interface Image {
   tag2?: string;
   tag3?: string;
   prompt?: string;
+  tokens?: string[][];
   technical?: {
     dimensions?: string;
     medium?: string;

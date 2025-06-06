@@ -8,12 +8,10 @@ const HomePage: React.FC = () => {
   const featuredImages = getFeaturedImages();
   
   const categoryImages = {
-    'neo-retro': '/style007/quantum-spheres.jpg',
-    'iridescent-divinity': '/style008/witness-unveiled.jpg',
-    'bronze-mythic-realism': '/style011/xyber3_85247_ancient_armored_knight_hidden_among_jagged_rocks_f066717c-438a-4afd-ae93-bf23b0a67d7c_2.png',
-    'hyper-anime-portraiture': '/style011/xyber3_85247_mysterious_red-haired_woman_in_vintage_attire_st_d04a3fcf-5e54-4369-a40a-c59fa452d62c_1.png',
     'mythic-tech-realism': '/style021/21photo01.png',
     'epic-painterly-realism': '/style022/22photo01.png',
+    'neon-mythic-odyssey': '/style023/wolf_dancer.png',
+    'retro-surreal-saga': '/style024/cyborg_profile.png',
   };
 
   const getCategoryImage = (category: Category) => {
